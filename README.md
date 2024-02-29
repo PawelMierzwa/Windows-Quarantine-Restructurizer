@@ -3,7 +3,7 @@ Unpacks archive with quarantine files and recreates the original file structure 
 After the restructurizing is done, the script decodes the files and writes out the quarantined files' information  
 Optionally dump the machine info and the actual quarantined files  
 
-This project is designed to work with Trellix HX Endpoint Security Multiple Files dump of the Windows Quarantine, 
+This project is designed to work with file dumps of the Windows Quarantine from EDR solutions, 
 but it can be slightly changed to work in other solutions for sure.
 
 ## Options:
