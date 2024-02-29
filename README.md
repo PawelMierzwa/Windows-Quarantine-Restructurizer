@@ -4,7 +4,7 @@ After the restructurizing is done, the script decodes the files and writes out t
 Optionally dump the machine info and the actual quarantined files  
 
 This project is designed to work with file dumps of the Windows Quarantine from EDR solutions, 
-but it can be slightly changed to work in other solutions for sure.
+but it can be slightly changed to work in other implementations for sure.
 
 ## Options:
 Flag | Full flag | Param | Definition
