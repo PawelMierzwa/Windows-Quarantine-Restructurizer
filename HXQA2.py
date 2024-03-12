@@ -244,7 +244,7 @@ def hash_entry(hash_type, file):
 def main():
     delay = 0.15
     
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='HX Quarantine Analyser')
     parser.add_argument('archive_path', help='Path to the archive')
     parser.add_argument('-p', '--password', help='Password for the archive')
     parser.add_argument('-o', '--output', default='./Quarantines', help='Output folder')
@@ -254,13 +254,14 @@ def main():
     args = parser.parse_args()
     
     print("""
-        HX Quarantine Analyser
-        ----------------------
-        Author: @PawelMierzwa
-        Credits: @CyberGoatherder, @knez for the quarantine extraction code
+HX Quarantine Analyser
+----------------------
+Author: @PawelMierzwa
+Credits: @CyberGoatherder, @knez for the quarantine extraction code
     """)
 
     output_dir = create_output_folder(args.output)
+    print("Selected Quarantine Archive: '" + args.archive_path + "'");sleep(delay)
     unzip_archive(args.archive_path, output_dir, args.password)
     file_map = map_md5_to_files(output_dir)
     xml_files = glob.glob(os.path.join(output_dir,'files-api*'))
@@ -268,7 +269,6 @@ def main():
         process_xml_file(xml_files[0], output_dir, file_map)
     else:
         print('No xml file found')
-    print("Selected Quarantine Archive: '" + args.archive_path + "'");sleep(delay)
     basedir = output_dir
     entries = parse_entries(basedir)
     hash_type = args.mode.lower()
