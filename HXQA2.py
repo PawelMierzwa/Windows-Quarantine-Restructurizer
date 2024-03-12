@@ -288,11 +288,8 @@ def main():
     print(x.get_string(sortby="Timestamp",reversesort=True))
 
     if args.dump:
-        print("Selected Output Folder: '" + args.output + "'");sleep(delay)
-        print("\n[+] Parsing and Hashing Entries:" + "\n");sleep(delay)
-        basedir = output_dir
-        entries = parse_entries(basedir)
-        dump_entries(args.output, entries)
+        print("\nSelected Output Folder: '" + output_dir + "'");sleep(delay)
+        dump_entries(output_dir, entries)
     if args.info:
         sysinfo_files = glob.glob(os.path.join(output_dir, 'sysinfo*'))
         if sysinfo_files:
