@@ -48,8 +48,8 @@ def process_xml_file(xml_file, output_dir, file_map):
     for file_item in root.findall('FileItem'):
         file_path = file_item.find('FilePath').text
         md5sum = file_item.find('Md5sum').text
-        if file_path.startswith('PROGRAMDATA\MICROSOFT\WINDOWS DEFENDER\QUARANTINE'):
-            file_path = file_path.replace('PROGRAMDATA\MICROSOFT\WINDOWS DEFENDER\QUARANTINE\\', '')
+        if file_path.startswith('PROGRAMDATA\\MICROSOFT\\WINDOWS DEFENDER\\QUARANTINE'):
+            file_path = file_path.replace('PROGRAMDATA\\MICROSOFT\\WINDOWS DEFENDER\\QUARANTINE\\', '')
             file = file_map.get(md5sum)
             if file:
                 if file_path != 'Entries':
