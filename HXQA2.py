@@ -51,6 +51,11 @@ def process_xml_file(xml_file, output_dir, file_map):
         if file_path.startswith('PROGRAMDATA\\MICROSOFT\\WINDOWS DEFENDER\\QUARANTINE'):
             file_path = file_path.replace('PROGRAMDATA\\MICROSOFT\\WINDOWS DEFENDER\\QUARANTINE\\', '')
             file = file_map.get(md5sum)
+            if os.name == 'nt':
+                slash = '\\'
+            else:
+                slash = '/'
+            file_path = file_path.replace("\\", slash)
             if file:
                 if file_path != 'Entries':
                     new_file_name = os.path.basename(file).split('-')[1][:-1]
